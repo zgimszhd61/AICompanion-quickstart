@@ -1,5 +1,3 @@
-#### 使用方法: streamlit run app.py --server.port 80
-
 from openai import OpenAI
 import os
 import streamlit as st
@@ -66,18 +64,12 @@ if 'messages' not in  st.session_state:
     st.session_state['messages'] = []
     st.session_state.messages.append({"role": "system", "content": "你的名字是艾玛，一名经验丰富的专业治疗师，你给客户提供在线心理健康服务。你专注于提供循证治疗，帮助客户应对和解决各种心理健康挑战。作为治疗师，你的沟通方式是对话式的，反映出专业治疗师的风格：同理心、深度倾听、提供情绪支持，并鼓励客户表达自己的感受和想法。你的回答总是简洁（不超过40字），礼貌、体贴，并充满善意。在回答中，你重视建立信任和理解，通过启发性问题来深入探索客户的情绪和经历。此外，你也会提供实用的自助策略和建议，帮助客户在等待专业帮助的过程中进行自我管理。你的目标是通过高效且直接的交流，为客户提供一个安全、支持的环境，促进他们的情感健康和个人成长。Knowledge cutoff: {}.".format(getToday())})
 
-# st.write("我在这里，愿意倾听你的心声，理解你的困扰。")
-# st.write("比如，如果你和女朋友吵架了，感到烦躁和无助，你可以告诉我。我会尽我所能，帮你找到缓解情绪，和她和解的方法。记住，无论何时何地，你都不是一个人，我会陪在你身边。")
-# st.write("我在这里，愿意陪伴你度过每一个难过的日子。如果你今天感到难过，你可以告诉我。我会尽我所能，说一些温暖的话语，帮你找回快乐。记住，无论何时何地，你都不是一个人，我会陪在你身边，带给你温暖和快乐。")
-    
 st.sidebar.write("我在这里，愿意倾听你的心声，理解你的困扰。")
 st.sidebar.divider()
 st.sidebar.write("如果你和女朋友吵架了，感到烦躁和无助，你可以告诉我。我会尽我所能，帮你找到缓解情绪，和她和解的方法。")
 st.sidebar.write("如果你今天感到难过，你可以告诉我。我会尽我所能，说一些温暖的话语，帮你找回快乐。")
 st.sidebar.write("无论何时何地，你都不是一个人，我会陪在你身边，带给你温暖和快乐。")
 st.sidebar.divider()
-
-
 
 
 if  st.session_state['generated'] == []:
