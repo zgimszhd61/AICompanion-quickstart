@@ -37,3 +37,6 @@
 streamlit run app.py --server.port 80
 ```
 
+#### 使用截图
+![image](https://github.com/zgimszhd61/AICompanion-quickstart/assets/114722053/cecf5aec-6175-49c9-a742-26bc8da147f5)
+
