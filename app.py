@@ -5,7 +5,7 @@ from streamlit_chat import message
 from streamlit_js_eval import streamlit_js_eval
 import datetime
 
-os.environ["OPENAI_API_KEY"] = "sk-proj-"
+os.environ["OPENAI_API_KEY"] = "sk-"
 
 client = OpenAI()
 
@@ -17,12 +17,19 @@ def getToday():
 
  
 def chatWithGPT3(messagelist):
-    print(messagelist.messages)
+    # 检查聊天记录的数量，如果超过50条，则只保留最近的50条记录
+    system_prompt = messagelist.messages[0]
+    if len(messagelist.messages) > 50:
+        recent_messages = messagelist.messages[-49:]
+        recent_messages.insert(0, system_prompt)
+    else:
+        recent_messages = messagelist.messages
+    print(recent_messages)
     client = OpenAI()
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         temperature=0,
-        messages=messagelist.messages
+        messages=recent_messages
     )
     return response.choices[0].message
 
